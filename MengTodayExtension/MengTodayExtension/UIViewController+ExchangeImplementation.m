@@ -10,6 +10,8 @@
 
 #import <objc/runtime.h>
 
+//pod 'Aspects', '~> 1.4.1'
+
 typedef id (*_IMP)(id,SEL, ...);
 
 @implementation UIViewController (ExchangeImplementation)
@@ -28,10 +30,10 @@ typedef id (*_IMP)(id,SEL, ...);
 {
     static dispatch_once_t oneToken;
     dispatch_once(&oneToken, ^{
-        Method viewDidLoad = class_getInstanceMethod(self, @selector(viewDidLoad));
-        _IMP viewDidLoad_IMP = (_IMP)method_getImplementation(viewDidLoad);
-        method_setImplementation(viewDidLoad, imp_implementationWithBlock(^(id target,SEL action){
-            viewDidLoad_IMP(target,@selector(viewDidLoad));
+        Method formerMethod = class_getInstanceMethod(self, @selector(viewDidLoad));
+        _IMP method_IMP = (_IMP)method_getImplementation(formerMethod);
+        method_setImplementation(formerMethod, imp_implementationWithBlock(^(id target,SEL action){
+            method_IMP(target,@selector(viewDidLoad));
             NSLog(@"%@ did load",self);
         }));
     });

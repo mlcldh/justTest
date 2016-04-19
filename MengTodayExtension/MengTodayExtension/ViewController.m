@@ -11,6 +11,10 @@
 
 @interface ViewController ()
 
+
+@property (strong, nonatomic) IBOutlet UIButton *button;
+
+
 @end
 
 @implementation ViewController
@@ -25,6 +29,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)buttonAction:(UIButton *)sender {
+    
+}
 
 
 @end

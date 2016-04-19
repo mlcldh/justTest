@@ -1,0 +1,13 @@
+PODS:
+  - Aspects (1.4.1)
+  - SVPullToRefresh (0.4.1)
+
+DEPENDENCIES:
+  - Aspects (~> 1.4.1)
+  - SVPullToRefresh (~> 0.4.1)
+
+SPEC CHECKSUMS:
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+
+COCOAPODS: 0.39.0
