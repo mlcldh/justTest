@@ -20,31 +20,33 @@ typedef id (*_IMP)(id,SEL, ...);
 //{
 //    static dispatch_once_t oneToken;
 //    dispatch_once(&oneToken, ^{
-//        Method viewDidLoad = class_getInstanceMethod(self, @selector(viewDidLoad));
-//        Method viewDidLoaded = class_getInstanceMethod(self, @selector(viewDidLoaded));
-//        method_exchangeImplementations(viewDidLoad, viewDidLoaded);
+//        Method formerMethod = class_getInstanceMethod(self, @selector(viewDidLoad));
+//        Method latterMethod = class_getInstanceMethod(self, @selector(viewDidLoaded));
+//        method_exchangeImplementations(formerMethod, latterMethod);
 //    });
 //}
-
-+ (void)load
-{
-    static dispatch_once_t oneToken;
-    dispatch_once(&oneToken, ^{
-        Method formerMethod = class_getInstanceMethod(self, @selector(viewDidLoad));
-        _IMP method_IMP = (_IMP)method_getImplementation(formerMethod);
-        method_setImplementation(formerMethod, imp_implementationWithBlock(^(id target,SEL action){
-            method_IMP(target,@selector(viewDidLoad));
-            NSLog(@"%@ did load",self);
-        }));
-    });
-}
-
+//
 //- (void)viewDidLoaded
 //{
 //    // 调用自己原有的方法
 //    [self viewDidLoaded];
-//    
+//
 //    NSLog(@"%@ did load",self);
 //}
+
+//+ (void)load
+//{
+//    static dispatch_once_t oneToken;
+//    dispatch_once(&oneToken, ^{
+//        Method formerMethod = class_getInstanceMethod(self, @selector(viewDidLoad));
+//        _IMP method_IMP = (_IMP)method_getImplementation(formerMethod);
+//        method_setImplementation(formerMethod, imp_implementationWithBlock(^(id target,SEL action){
+//            method_IMP(target,@selector(viewDidLoad));
+//            NSLog(@"%@ did load",self);
+//        }));
+//    });
+//}
+
+
 
 @end
