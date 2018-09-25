@@ -22,4 +22,4 @@ int c = a+b;
 ## The second largest heading
 ###### The smallest heading
 
-[Contribution guidelines for this project](docs/CONTRIBUTING.md)
+[Contribution guidelines for this project](MengTodayExtension/MengTodayExtension/AppDelegate.h)
