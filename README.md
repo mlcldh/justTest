@@ -21,3 +21,5 @@ int c = a+b;
 # The largest heading
 ## The second largest heading
 ###### The smallest heading
+
+[Contribution guidelines for this project](docs/CONTRIBUTING.md)
